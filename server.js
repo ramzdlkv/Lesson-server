@@ -9,13 +9,31 @@ app.get('/' , (req , res) =>{
     res.send("Главная страница")
 })
 
-app.get('/car' , (req , res) =>{
-    res.send("вторая страница")
+app.get('/About' , (req , res) =>{
+    res.send("О нас")
 })
-// const server = http.createServer((req, res) => { // создаем сервер 
-// res.end("Hello world") // ответ клиенту когда он зайдет на сервер
 
-// })
+app.get('/Contacts' , (req , res) =>{
+    res.send("Контакты")
+})
+
+app.get('/Product/:id' , (req , res) =>{
+    console.log(req.params.id);
+    res.send(`Продукт id: ${req.params.id}`)
+    
+    
+})
+
+app.get('/Number/:id' , (req , res) =>{
+    res.send(`Ваш номер телефона: ${req.params.id}`)
+})
+
+
+app.post('/addproduct' , (req , res)=>{
+    const { name , age } = req.body;
+})
+
+
 
 app.listen(PORT , ()=>{ // тут расписываем на каком порту будет запускаться сервер
     console.log("127.0.0.1:3000");
